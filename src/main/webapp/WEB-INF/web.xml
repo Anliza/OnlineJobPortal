@@ -12,6 +12,10 @@
     <servlet-name>AnnAgain</servlet-name>
     <servlet-class>com.ann.servlet.HelloAgain</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>AnnFinal</servlet-name>
+    <servlet-class>com.ann.servlet.HelloFinal</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>Ann</servlet-name>
@@ -20,5 +24,9 @@
   <servlet-mapping>
     <servlet-name>AnnAgain</servlet-name>
     <url-pattern>/pete</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AnnFinal</servlet-name>
+    <url-pattern>/eve</url-pattern>
   </servlet-mapping>
 </web-app>
