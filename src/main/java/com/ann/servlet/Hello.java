@@ -2,6 +2,7 @@ package com.ann.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
@@ -29,10 +30,20 @@ public class Hello implements Servlet {
     }
 
     @Override
-    public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
+    public void service(ServletRequest req, ServletResponse resp) throws ServletException, IOException {
 
-        PrintWriter print = servletResponse.getWriter();
-        print.print("<b>Hello world!</b>");
+        PrintWriter print = resp.getWriter();
+        print.print("<b>Hello "+req.getParameter("name")+ "</b><br/>");
+
+        print.print("<b>A Calculator...</b><br/>");
+
+        String numberStr1 =req.getParameter("number1");
+        String numberStr2 =req.getParameter("number2");
+
+        BigDecimal number1 = new BigDecimal(numberStr1);
+        BigDecimal number2 = new BigDecimal(numberStr2);
+
+        print.print(numberStr1 + "+" + numberStr2 + "=" + number1.add(number2));
         
     }
 
