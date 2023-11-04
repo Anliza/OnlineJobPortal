@@ -8,9 +8,17 @@
     <servlet-name>Ann</servlet-name>
     <servlet-class>com.ann.servlet.Hello</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>AnnAgain</servlet-name>
+    <servlet-class>com.ann.servlet.HelloAgain</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>Ann</servlet-name>
     <url-pattern>/nate</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AnnAgain</servlet-name>
+    <url-pattern>/pete</url-pattern>
   </servlet-mapping>
 </web-app>
