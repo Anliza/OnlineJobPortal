@@ -4,4 +4,13 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+    <servlet-name>Ann</servlet-name>
+    <servlet-class>com.ann.servlet.Hello</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>Ann</servlet-name>
+    <url-pattern>/nate</url-pattern>
+  </servlet-mapping>
 </web-app>
