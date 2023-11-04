@@ -1,11 +1,10 @@
 <!DOCTYPE html>   
 <html>   
-<head>   
+<head>  
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
 <title> Login Page </title>  
 <style>   
-/*#191718
 
-*/
 Body {  
   font-family: Calibri, Helvetica, sans-serif;  
   background-color: #096E77; 
@@ -43,7 +42,9 @@ button {
 </style>   
 </head>    
 <body>    
-    <center> <h1 style="color: #E0E5E9;"> Login </h1> </center>   
+    <center> <h1 style="color: #E0E5E9;"> Login </h1> </center>  
+    
+    <form action="./login" method="post">
     
         <div class="container">   
             <label>Username : </label>   
@@ -53,6 +54,7 @@ button {
             <p><button type="submit">Login</button> </p>  
             <left> <a style="color:#64766A;"href="#"> Forgot password? </a></left>
         </div>   
+    </form>
      
 </body>     
 </html>  
