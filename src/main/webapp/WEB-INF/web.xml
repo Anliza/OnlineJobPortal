@@ -4,29 +4,5 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-  <servlet>
-    <servlet-name>Ann</servlet-name>
-    <servlet-class>com.ann.servlet.Hello</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>AnnAgain</servlet-name>
-    <servlet-class>com.ann.servlet.HelloAgain</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>AnnFinal</servlet-name>
-    <servlet-class>com.ann.servlet.HelloFinal</servlet-class>
-  </servlet>
-
-  <servlet-mapping>
-    <servlet-name>Ann</servlet-name>
-    <url-pattern>/nate</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>AnnAgain</servlet-name>
-    <url-pattern>/pete</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>AnnFinal</servlet-name>
-    <url-pattern>/eve</url-pattern>
-  </servlet-mapping>
+ 
 </web-app>
