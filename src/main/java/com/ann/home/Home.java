@@ -3,6 +3,7 @@ package com.ann.home;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,6 +19,8 @@ import com.ann.app.bean.JobBeanI;
 public class Home extends HttpServlet{
 
        public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        ServletContext ctx = getServletContext();
 
         JobBeanI jobBeanEn = new JobBean();
         //JobBeanI jobBeanFr = new JobBeanFrench();
@@ -53,10 +56,14 @@ public class Home extends HttpServlet{
                 "</style>\n" + //
                 "</head>\n" + //
                 "<body>\n" + //
+                    "Welcome: " + ctx.getAttribute("username") + "<br/>" +
+                    ctx.getInitParameter("AppName") + "<br/>" +
                 "\n" + //
                 "<center><h2 style=\"color: #E0E5E9;\">Available Jobs</h2></center>\n");
-                print.write(jobBeanEn.jobsAvailable());
-                print.write("\n" +//
+            print.write(jobBeanEn.jobsAvailable());
+            print.write("\n" +//
+                "Server Info: " + ctx.getServerInfo() + "<br/>" +
+                "Application Deployment Location" + ctx.getRealPath(ctx.getContextPath()) + "<br/>" +
                 "</body>\n" + //
                 "</html>");
     }

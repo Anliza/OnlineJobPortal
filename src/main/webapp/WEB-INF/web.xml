@@ -5,4 +5,18 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
  
+   <display-name>Job Application Portal</display-name>
+
+  <context-param>
+    <param-name>AppName</param-name>
+    <param-value>Job Portal Learning</param-value>
+  </context-param>
+  <context-param>
+    <param-name>username</param-name>
+    <param-value>AnnMunyi</param-value>
+  </context-param>
+  <context-param>
+    <param-name>password</param-name>
+    <param-value>Anlliza@123</param-value>
+  </context-param>
 </web-app>
