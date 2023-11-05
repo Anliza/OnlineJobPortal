@@ -70,3 +70,8 @@ Sendredirect - Requires one to set attributes and redirects to a whole other pag
 Include and forward work within the requestDispatcher
 Include - includes the request information on the current page
 forward - forward the request information to the target page
+
+Model addition(module)
+Bean(business package)
+
+JobBean.java is the action class
