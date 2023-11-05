@@ -9,6 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.commons.lang3.StringUtils;
 
 import com.ann.app.bean.JobBean;
 //import com.ann.app.bean.JobBeanFrench;
@@ -18,7 +21,10 @@ import com.ann.app.bean.JobBeanI;
 
 public class Home extends HttpServlet{
 
-       public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+        HttpSession httpSession = req.getSession();
+
+        if (StringUtils.isNotBlank((String) httpSession.getAttribute("loggedInId"))){
 
         ServletContext ctx = getServletContext();
 
@@ -62,10 +68,14 @@ public class Home extends HttpServlet{
                 "<center><h2 style=\"color: #E0E5E9;\">Available Jobs</h2></center>\n");
             print.write(jobBeanEn.jobsAvailable());
             print.write("\n" +//
-                "Server Info: " + ctx.getServerInfo() + "<br/>" +
-                "Application Deployment Location" + ctx.getRealPath(ctx.getContextPath()) + "<br/>" +
+                //"Server Info: " + ctx.getServerInfo() + "<br/>" +
+                //"Application Deployment Location" + ctx.getRealPath(ctx.getContextPath()) + "<br/>" +
+                "\n" +//
+                "<center><a href=\"./logout\">Logout</a></center>\n "+ //
                 "</body>\n" + //
                 "</html>");
+    } else
+            resp.sendRedirect("./");
     }
     
 }

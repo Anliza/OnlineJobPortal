@@ -76,7 +76,9 @@ Bean(business package)
 
 JobBean.java is the action class
 
-Servlet context: Created by the web container for every web application
-Defines a set of methods that a servlet uses to communicate with its servlet container. ServletContext object is used to get configuration information from Deployment Descriptor(web.xml) which will be available to any servlet or JSPs that are part of the web app. 
+## Servlet context:
+- Created by the web container for every web application
+- Defines a set of methods that a servlet uses to communicate with its servlet container.ServletContext object is used to get configuration information from Deployment Descriptor(web.xml) which will be available to any servlet or JSPs that are part of the web app. 
+- Servlet config and servlet context difference: context can be applied on the whole web application, any servlet in the web application while servlet config can only be used in a specific servlet.
 
-Servlet config and servlet context difference: context can be applied on the whole web application, any servlet in the web application while servlet config can only be used in a specific servlet.
+## Httpsessions

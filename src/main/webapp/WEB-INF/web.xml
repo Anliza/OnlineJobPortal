@@ -17,6 +17,6 @@
   </context-param>
   <context-param>
     <param-name>password</param-name>
-    <param-value>Anlliza@123</param-value>
+    <param-value>Annliza@123</param-value>
   </context-param>
 </web-app>

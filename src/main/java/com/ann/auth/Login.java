@@ -2,6 +2,7 @@ package com.ann.auth;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -10,16 +11,28 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.commons.lang3.StringUtils;
 
 @WebServlet(urlPatterns = "/login")
 
 public class Login extends HttpServlet{
 
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-        resp.sendRedirect("./");
+        
+        HttpSession httpSession = req.getSession();
+
+        if (StringUtils.isNotBlank((String) httpSession.getAttribute("loggedInId")))
+            resp.sendRedirect("./home");
+        else
+            resp.sendRedirect("./");
     }
 
      public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+
+        HttpSession httpSession = req.getSession(true);
+        httpSession.setAttribute("loggedInId", new Date().getTime() + "");
 
         ServletContext ctx = getServletContext();
 
@@ -30,8 +43,8 @@ public class Login extends HttpServlet{
         && password.equals(ctx.getInitParameter("password"))) {
         
             ctx.setAttribute("username", username);
-            RequestDispatcher dispatcher = req.getRequestDispatcher("./home");
-            dispatcher.forward(req, resp);
+            
+            resp.sendRedirect("./home");
           
         }  
         else{
