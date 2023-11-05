@@ -56,3 +56,17 @@ Deployment Descriptor (web.xml) - programming through configuration---later
 
 Now we move on to programming with conventions. Remove all the mappings in the web.xml.
 Include "@webservlet(./servlet-name)" at the beginning of every servlet. These are called annotations.
+
+
+ServletRequest - handles request, get parameters
+ServletResponse - enable response, PrintWriter
+
+RequestDispatcher - The url does not change. The page does not change. Allows you to call a servlet within another servlet.
+                Functional difference:- works on the request object
+Sendredirect - Requires one to set attributes and redirects to a whole other page. Directs you to another page.
+            url changes.
+             Functional difference:- works on the response object. Cannot get the request object as it is
+
+Include and forward work within the requestDispatcher
+Include - includes the request information on the current page
+forward - forward the request information to the target page

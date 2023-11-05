@@ -20,8 +20,10 @@ public class Login extends HttpServlet{
 
         
         if (username.equals("Ann") && password.equals("Annliza")){
-            RequestDispatcher dispatcher = req.getRequestDispatcher("./app/home.html");
-            dispatcher.include(req, resp);
+            req.setAttribute("homeInfo", "Welcome to your home page!!");
+            RequestDispatcher dispatcher = req.getRequestDispatcher("./home");
+            dispatcher.forward(req, resp);
+            //resp.sendRedirect("./app/home.html");
         }  
         else{
             PrintWriter print =resp.getWriter();
