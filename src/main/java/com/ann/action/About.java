@@ -22,7 +22,7 @@ public class About extends HttpServlet {
         if (StringUtils.isNotBlank((String) httpSession.getAttribute("loggedInId"))) {
 
             new AppPage().renderHtml(req, resp, 1,
-                    "<h2>About Us </h2> Information on Us");
+                    "<h2>About Us </h2> Information on Us <br>");
 
         } else
             resp.sendRedirect("./");

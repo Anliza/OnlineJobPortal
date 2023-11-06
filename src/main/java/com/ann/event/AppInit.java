@@ -16,9 +16,9 @@ public class AppInit implements ServletContextListener{
         System.out.println("*************** Initializing database *************");
 
         Database database = Database.getDbInstance();
-        database.getUsers().add(new User(0L, "john.snow@test.com", "12345"));
-        database.getUsers().add(new User(0L, "john.doe@test.com", "54321"));
-        database.getUsers().add(new User(0L, "jane.doe@test.com", "00000"));
+        database.getUsers().add(new User(0L, "Annliza", "12345"));
+        database.getUsers().add(new User(0L, "Ann.Munyi", "54321"));
+        database.getUsers().add(new User(0L, "jane.doe", "00000"));
 
         database.getJobs().add(new Job("ICT", "NAIROBI", "2 Nov 2023"));
         database.getJobs().add(new Job("HUMAN RESOURCE", "KISUMU", "30 Oct 2023"));

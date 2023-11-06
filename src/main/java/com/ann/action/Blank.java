@@ -22,7 +22,7 @@ public class Blank extends HttpServlet {
         if (StringUtils.isNotBlank((String) httpSession.getAttribute("loggedInId"))) {
 
             new AppPage().renderHtml(req, resp, 2,
-                    "<h2>Blank</h2> There will be some content here");
+                    "<h2>Blank</h2> There will be some content here <br>");
 
         } else
             resp.sendRedirect("./");
