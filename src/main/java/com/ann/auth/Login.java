@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.StringUtils;
+
+import com.ann.app.model.entity.User;
+import com.ann.database.Database;
 
 @WebServlet(urlPatterns = "/login")
 
@@ -31,26 +32,29 @@ public class Login extends HttpServlet{
 
      public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 
-        HttpSession session = req.getSession(true);
-        session.setAttribute("loggedInId", new Date().getTime() + "");
-
-        ServletContext ctx = getServletContext();
-
+        
         String username = req.getParameter("username");
         String password = req.getParameter("password");
 
-        if (username.equals(ctx.getInitParameter("username"))
-        && password.equals(ctx.getInitParameter("password"))) {
-        
-            session.setAttribute("username", username);
+            Database database = Database.getDbInstance();
+            
+            System.out.println("what time was this database created: " + database.getDatabaseCreateAt());
 
-            resp.sendRedirect("./home");
+            for (User user : database.getUsers()) {
+            if (username.equals(user.getUsername()) && password.equals(user.getPassword())) {
+                HttpSession httpSession = req.getSession(true);
           
-        }  
-        else{
-            PrintWriter print =resp.getWriter();
-            print.write("<html><body>Invalid login details. <a href= \".\">Login again</a></body></html>");
-        }
+                httpSession.setAttribute("loggedInId", new Date().getTime() + "");
+                httpSession.setAttribute("username", username);
+
+                resp.sendRedirect("./home");
+
+            }
+        }   
+        PrintWriter print = resp.getWriter();
+        print.write("<html><body>Invalid login details <a href=\".\"> Login again </a></body></html>");
+
+ 
      }
     
 }

@@ -1,4 +1,4 @@
-package com.ann.home;
+package com.ann.action;
 
 import java.io.IOException;
 
@@ -11,8 +11,6 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.ann.app.bean.JobBean;
-import com.ann.app.bean.JobBeanI;
 import com.ann.app.view.html.AppPage;
 
 @WebServlet("blank")
@@ -22,8 +20,6 @@ public class Blank extends HttpServlet {
         HttpSession httpSession = req.getSession();
 
         if (StringUtils.isNotBlank((String) httpSession.getAttribute("loggedInId"))) {
-
-            JobBeanI jobBeanEn = new JobBean();
 
             new AppPage().renderHtml(req, resp, 2,
                     "<h2>Blank</h2> There will be some content here");

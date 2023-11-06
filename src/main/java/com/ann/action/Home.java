@@ -1,4 +1,4 @@
-package com.ann.home;
+package com.ann.action;
 
 import java.io.IOException;
 
@@ -15,20 +15,21 @@ import com.ann.app.bean.JobBean;
 import com.ann.app.bean.JobBeanI;
 import com.ann.app.view.html.AppPage;
 
-@WebServlet("about")
-public class About extends HttpServlet {
+@WebServlet("/home")
+
+public class Home extends HttpServlet{
 
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         HttpSession httpSession = req.getSession();
 
-        if (StringUtils.isNotBlank((String) httpSession.getAttribute("loggedInId"))) {
+        if (StringUtils.isNotBlank((String) httpSession.getAttribute("loggedInId"))){
 
-            JobBeanI jobBeanEn = new JobBean();
+        JobBeanI jobBeanEn = new JobBean();
 
-            new AppPage().renderHtml(req, resp, 1,
-                    "<h2>About Us </h2> Information on Us");
-
-        } else
+        new AppPage().renderHtml(req, resp, 0,
+        "<center><h2 style=\"color: #E0E5E9;\">Available Jobs</h2></center>\n"+ jobBeanEn.jobsAvailable());
+            
+    } else
             resp.sendRedirect("./");
     }
     

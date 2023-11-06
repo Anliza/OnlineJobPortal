@@ -1,4 +1,4 @@
-package com.ann.home;
+package com.ann.action;
 
 import java.io.IOException;
 
@@ -11,22 +11,18 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.ann.app.bean.JobBean;
-import com.ann.app.bean.JobBeanI;
 import com.ann.app.view.html.AppPage;
 
-@WebServlet("blank2")
-public class Blank2  extends HttpServlet {
+@WebServlet("about")
+public class About extends HttpServlet {
 
-    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         HttpSession httpSession = req.getSession();
 
         if (StringUtils.isNotBlank((String) httpSession.getAttribute("loggedInId"))) {
 
-            JobBeanI accountBeanEn = new JobBean();
-
-            new AppPage().renderHtml(req, resp, 3,
-                    "<h2>Blank2</h2> There will be some content here");
+            new AppPage().renderHtml(req, resp, 1,
+                    "<h2>About Us </h2> Information on Us");
 
         } else
             resp.sendRedirect("./");
