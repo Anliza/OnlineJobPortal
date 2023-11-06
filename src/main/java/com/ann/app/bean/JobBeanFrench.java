@@ -1,6 +1,6 @@
 package com.ann.app.bean;
 
-import com.ann.app.model.Job;
+import com.ann.app.model.entity.Job;
 
 public class JobBeanFrench implements JobBeanI{
 

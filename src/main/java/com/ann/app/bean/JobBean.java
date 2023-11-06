@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ann.app.model.Job;
+import com.ann.app.model.entity.Job;
 
 public class JobBean implements JobBeanI, Serializable{
     

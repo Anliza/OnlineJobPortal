@@ -1,9 +1,7 @@
 package com.ann.home;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,25 +12,23 @@ import javax.servlet.http.HttpSession;
 import org.apache.commons.lang3.StringUtils;
 
 import com.ann.app.bean.JobBean;
-//import com.ann.app.bean.JobBeanFrench;
 import com.ann.app.bean.JobBeanI;
 import com.ann.app.view.html.AppPage;
 
-@WebServlet("/home")
-
-public class Home extends HttpServlet{
+@WebServlet("about")
+public class About extends HttpServlet {
 
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         HttpSession httpSession = req.getSession();
 
-        if (StringUtils.isNotBlank((String) httpSession.getAttribute("loggedInId"))){
+        if (StringUtils.isNotBlank((String) httpSession.getAttribute("loggedInId"))) {
 
-        JobBeanI jobBeanEn = new JobBean();
+            JobBeanI jobBeanEn = new JobBean();
 
-        new AppPage().renderHtml(req, resp, 0,
-        "<center><h2 style=\"color: #E0E5E9;\">Available Jobs</h2></center>\n"+ jobBeanEn.jobsAvailable());
-            
-    } else
+            new AppPage().renderHtml(req, resp, 1,
+                    "<h2>About Us </h2> Information on Us");
+
+        } else
             resp.sendRedirect("./");
     }
     

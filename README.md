@@ -82,3 +82,7 @@ JobBean.java is the action class
 - Servlet config and servlet context difference: context can be applied on the whole web application, any servlet in the web application while servlet config can only be used in a specific servlet.
 
 ## Httpsessions
+## Page render refactor
+implemented more servlets to anable page rendering. This meant separation of the html, css and the java code for the better part.
+It allowed for the communication of different pages easily after the refactoring.
+A toolbar was created to allow for the navigation between the different servlets.

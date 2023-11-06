@@ -31,8 +31,8 @@ public class Login extends HttpServlet{
 
      public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 
-        HttpSession httpSession = req.getSession(true);
-        httpSession.setAttribute("loggedInId", new Date().getTime() + "");
+        HttpSession session = req.getSession(true);
+        session.setAttribute("loggedInId", new Date().getTime() + "");
 
         ServletContext ctx = getServletContext();
 
@@ -42,8 +42,8 @@ public class Login extends HttpServlet{
         if (username.equals(ctx.getInitParameter("username"))
         && password.equals(ctx.getInitParameter("password"))) {
         
-            ctx.setAttribute("username", username);
-            
+            session.setAttribute("username", username);
+
             resp.sendRedirect("./home");
           
         }  
