@@ -27,7 +27,16 @@ public class Home extends HttpServlet{
         JobBeanI jobBeanEn = new JobBean();
 
         new AppPage().renderHtml(req, resp, 0,
-        "<center><h2 style=\"color: #E0E5E9;\">Available Jobs</h2></center>\n"+ jobBeanEn.jobsAvailable());
+        "<center><h2 style=\"color: #E0E5E9;\">Available Jobs</h2></center>\n"+
+        "<br/>Add Job<br/><form action=\"./job\" method=\"post\">" +
+            "  <label for=\"title\">Job Title:</label><br>" +
+            "  <input type=\"text\" id=\"title\" name=\"title\" ><br>" +
+            "  <label for=\"location\">Location:</label><br>" +
+            "  <input type=\"text\" id=\"location\" name=\"location\" ><br><br>" +
+            "  <label for=\"date posted\">Date Posted:</label><br>" +
+            "  <input type=\"text\" id=\"date posted\" name=\"date posted\" ><br><br>" +
+            "  <input type=\"submit\" value=\"Submit\">" +
+        "</form><br/>"+ jobBeanEn.jobsAvailable());
             
     } else
             resp.sendRedirect("./");
