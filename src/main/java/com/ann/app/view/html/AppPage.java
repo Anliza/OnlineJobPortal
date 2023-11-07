@@ -39,7 +39,7 @@ public class AppPage implements Serializable{
             "<h3 style=\"color: #E0E5E9\";>Welcome: " + session.getAttribute("username") + "</h3><br/>");
 
         print.write(content);
-        print.write("<a href=\"./logout\">Logout</a>" +
+        print.write("<a style= \" color: pink\"href=\"./logout\">Logout</a>" +
             "</body>" +
             "</html>");
 

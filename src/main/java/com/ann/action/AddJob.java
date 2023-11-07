@@ -22,10 +22,22 @@ public class AddJob  extends HttpServlet {
         if (StringUtils.isNotBlank((String) httpSession.getAttribute("loggedInId"))) {
 
             new AppPage().renderHtml(req, resp, 3,
-                    "<h2>B</h2> There will be some content here <br>");
+
+            "<center\n>"+
+            "<form\n>" +
+            "<br/ style=\"color: #E0E5E9;\">Add Job<br/> <form action=\"./job\" method=\"post\">" +
+            "  <label for=\"title\" style=\"color: #E0E5E9;\">Job Title:</label><br>" +
+            "  <input type=\"text\" id=\"title\" name=\"title\" ><br>" +
+            "  <label for=\"location\" style=\"color: #E0E5E9;\">Location:</label><br>" +
+            "  <input type=\"text\" id=\"location\" name=\"location\" ><br>" +
+            "  <label for=\"date posted\" style=\"color: #E0E5E9;\">Date Posted:</label><br>" +
+            "  <input type=\"text\" id=\"date posted\" name=\"date posted\" ><br><br>" +
+            "  <input type=\"submit\" value=\"Submit\">" +
+        "</form><br/>\n" +
+        "</center>\n");
 
         } else
-            resp.sendRedirect("./");
+            resp.sendRedirect("./login");
     }
     
 }

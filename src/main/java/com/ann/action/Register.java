@@ -31,6 +31,6 @@ public class Register extends HttpServlet{
         if (password.equals(confirmPassword))
             database.getUsers().add(new User(100L, username, password));
 
-        resp.sendRedirect("./");
+        resp.sendRedirect("./login");
     }
 }
