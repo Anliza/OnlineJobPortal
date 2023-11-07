@@ -7,7 +7,7 @@ import java.io.Serializable;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.ann.app.view.css.LoginCss;
+import com.ann.app.view.css.LoginRegisterCss;
 
 public class LoginPage implements Serializable{
     
@@ -21,7 +21,7 @@ public class LoginPage implements Serializable{
                 "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n" + //
                 "    <title> Login Page </title>\n" + //
 
-                    new LoginCss().getlStyle() +
+                    new LoginRegisterCss().getlStyle() +
 
                 "</head>\n" + //
                 "\n" + //

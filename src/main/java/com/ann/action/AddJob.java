@@ -13,8 +13,8 @@ import org.apache.commons.lang3.StringUtils;
 
 import com.ann.app.view.html.AppPage;
 
-@WebServlet("blank2")
-public class Blank2  extends HttpServlet {
+@WebServlet("addjob")
+public class AddJob  extends HttpServlet {
 
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession httpSession = req.getSession();
@@ -22,7 +22,7 @@ public class Blank2  extends HttpServlet {
         if (StringUtils.isNotBlank((String) httpSession.getAttribute("loggedInId"))) {
 
             new AppPage().renderHtml(req, resp, 3,
-                    "<h2>Blank2</h2> There will be some content here <br>");
+                    "<h2>B</h2> There will be some content here <br>");
 
         } else
             resp.sendRedirect("./");
