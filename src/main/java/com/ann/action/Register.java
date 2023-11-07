@@ -74,6 +74,7 @@ public class Register extends HttpServlet{
                 "        <input type=\"password\" placeholder=\"Enter Password\" name=\"password\" required>\n" + //
                 "        <label for=\"confirmPassword\"><b>Password</b></label>\n" + //
                 "        <input type=\"password\" placeholder=\"Confirm Enter Password\" name=\"confirmPassword\" required>\n" + //
+                "        <button type=\"reset\">Reset the form!</button><br><br>\n" + //
                 "        <button type=\"submit\">Register</button>\n" + //
                 "        </div>\n" + //
                 "\n" + //

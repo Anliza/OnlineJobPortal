@@ -26,8 +26,78 @@ public class Login extends HttpServlet{
 
         if (StringUtils.isNotBlank((String) httpSession.getAttribute("loggedInId")))
             resp.sendRedirect("./home");
-        else
-            resp.sendRedirect("./");
+        else{
+           // resp.sendRedirect("./login");
+           PrintWriter print = resp.getWriter();
+           print.write("<!DOCTYPE html>\n" + //
+                   "<html>\n" + //
+                   "\n" + //
+                   "<head>\n" + //
+                   "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n" + //
+                   "    <title> Login Page </title>\n" + //
+                   "    <style>\n" + //
+                   "        Body {\n" + //
+                   "            font-family: Calibri, Helvetica, sans-serif;\n" + //
+                   "            background-color: #096E77;\n" + //
+                   "        }\n" + //
+                   "\n" + //
+                   "        button {\n" + //
+                   "            background-color: #9F496E;\n" + //
+                   "            width: 100px;\n" + //
+                   "            color: #F4F2F3;\n" + //
+                   "            padding: 5px;\n" + //
+                   "            border: none;\n" + //
+                   "            cursor: pointer;\n" + //
+                   "        }\n" + //
+                   "\n" + //
+                   "        input[type=text],\n" + //
+                   "        input[type=password] {\n" + //
+                   "            width: 100%;\n" + //
+                   "            margin: 8px 0;\n" + //
+                   "            padding: 12px 20px;\n" + //
+                   "            display: inline-block;\n" + //
+                   "            border: 2px #F4F2F3;\n" + //
+                   "            box-sizing: border-box;\n" + //
+                   "        }\n" + //
+                   "\n" + //
+                   "        button:hover {\n" + //
+                   "            opacity: 0.7;\n" + //
+                   "        }\n" + //
+                   "\n" + //
+                   "        .container {\n" + //
+                   "            padding: 20px;\n" + //
+                   "            background-color: #E0E5E9;\n" + //
+                   "            width: 500px;\n" + //
+                   "            margin: 0 auto;\n" + //
+                   "            color: #9F496E;\n" + //
+                   "        }\n" + //
+                   "    </style>\n" + //
+                   "</head>\n" + //
+                   "\n" + //
+                   "<body>\n" + //
+                   "    <center>\n" + //
+                   "        <h1 style=\"color: #E0E5E9;\"> Login </h1>\n" + //
+                   "    </center>\n" + //
+                   "\n" + //
+                   "    <span style=\"font-weight:bold;font-size:13px;\"></span>\n" + //
+                   "    <form action=\"./login\" method=\"post\">\n" + //
+                   "\n" + //
+                   "        <div class=\"container\">\n" + //
+                   "            <label>Username : </label>\n" + //
+                   "            <input type=\"text\" placeholder=\"Enter Username\" name=\"username\" required>\n" + //
+                   "            <label>Password : </label>\n" + //
+                   "            <input type=\"password\" placeholder=\"Enter Password\" name=\"password\" required>\n" + //
+                   "            <p><button type=\"submit\">Login</button> </p>\n" + //
+                   "            <right-align> <a style=\"color:#64766A;\" href=\"#\"> Forgot password? </a></right>\n" + //
+                   "                <left> <a style=\"color:#64766A;\" href=\"./register\"> Register </a></left>\n" + //
+                   "\n" + //
+                   "        </div>\n" + //
+                   "    </form>\n" + //
+                   "\n" + //
+                   "</body>\n" + //
+                   "\n" + //
+                   "</html>");
+        }
     }
 
      public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
