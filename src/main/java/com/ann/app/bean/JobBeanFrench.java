@@ -10,7 +10,7 @@ public class JobBeanFrench implements JobBeanI{
     }
 
     @Override
-    public Job addOrUpdateJob(Job job) throws Exception {
+    public Job addOrUpdateJob(Job job) {
         return null;
     }
 

@@ -1,4 +1,4 @@
-package com.ann.action;
+package com.ann.app.action;
 
 import java.io.IOException;
 
@@ -11,26 +11,21 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.ann.app.model.entity.Job;
-import com.ann.database.Database;
+import com.ann.app.view.html.AppPage;
 
-@WebServlet("/job")
-public class JobAction extends HttpServlet{
-    
-      public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+@WebServlet("about")
+public class About extends HttpServlet {
+
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         HttpSession httpSession = req.getSession();
 
         if (StringUtils.isNotBlank((String) httpSession.getAttribute("loggedInId"))) {
 
-            Database database = Database.getDbInstance();
-
-            database.getJobs().add(new Job(req.getParameter("title"), req.getParameter("location"), 
-                req.getParameter("date posted")));
-
-            resp.sendRedirect("./home");
+            new AppPage().renderHtml(req, resp, 1,
+                    "<h2>About Us </h2> Information on Us <br>");
 
         } else
             resp.sendRedirect("./");
-
     }
+    
 }

@@ -14,7 +14,7 @@ public class TopToolbar implements Menu, Serializable{
     {
         links.add(new MenuLink("./home", "Home", MenuLinkStatus.ACTIVE));
         links.add(new MenuLink("./about", "About", MenuLinkStatus.NOT_ACTIVE));
-        links.add(new MenuLink("./blank", "Blank", MenuLinkStatus.NOT_ACTIVE));
+        links.add(new MenuLink("./services", "Services", MenuLinkStatus.NOT_ACTIVE));
         links.add(new MenuLink("./addjob", "Add Job", MenuLinkStatus.NOT_ACTIVE));
     }
 

@@ -6,7 +6,7 @@ public interface JobBeanI {
     
     String jobsAvailable();
 
-    Job addOrUpdateJob(Job job) throws Exception;
+    Job addOrUpdateJob(Job job);
 
     void deleteJob(Job job);
 }
