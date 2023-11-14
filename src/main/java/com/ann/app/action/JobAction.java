@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.lang3.StringUtils;
-
 import com.ann.app.bean.JobBean;
 import com.ann.app.bean.JobBeanI;
 import com.ann.app.model.entity.Job;
@@ -23,16 +21,11 @@ public class JobAction extends HttpServlet{
       public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession httpSession = req.getSession();
 
-        if (StringUtils.isNotBlank((String) httpSession.getAttribute("loggedInId"))) {
-
             jobBeanEn.addOrUpdateJob(new Job(req.getParameter("title"), req.getParameter("location"), 
                 req.getParameter("date posted")));
             
 
             resp.sendRedirect("./home");
-
-        } else
-            resp.sendRedirect("./");
 
     }
 }
