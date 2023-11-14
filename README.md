@@ -92,3 +92,5 @@ A toolbar was created to allow for the navigation between the different servlets
 listeners is something that waits for and an event to happen so that it can do something else)
 
  Filters
+ Servlet filter implementation.
+ Enable session check for the every servlet.

@@ -14,16 +14,16 @@ import com.ann.app.bean.JobBeanI;
 import com.ann.app.model.entity.Job;
 
 @WebServlet("/job")
-public class JobAction extends HttpServlet{
+public class JobAction extends BaseAction{
 
+    private Job job = new Job();
     private JobBeanI jobBeanEn = new JobBean();
     
       public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession httpSession = req.getSession();
-
-            jobBeanEn.addOrUpdateJob(new Job(req.getParameter("title"), req.getParameter("location"), 
-                req.getParameter("date posted")));
             
+            serializeForm(job, req.getParameterMap());
+            jobBeanEn.addOrUpdateJob(job);
 
             resp.sendRedirect("./home");
 
