@@ -9,8 +9,8 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface HtmlForm {
 
-    String label() default "Form";
-    String url() default ".";
+    String label();
+    String url();
     String httpMethod()default "Post";
     
 }

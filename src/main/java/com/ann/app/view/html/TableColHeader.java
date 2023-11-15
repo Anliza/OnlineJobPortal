@@ -7,11 +7,7 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface HtmlFormField {
+public @interface TableColHeader {
     
-    String labelFor()default"";
-    String label() default "";
-    String id() default "";
-    String name() default "";
-
+    String header();
 }

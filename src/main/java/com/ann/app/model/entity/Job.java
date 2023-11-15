@@ -4,16 +4,20 @@ import java.io.Serializable;
 
 import com.ann.app.view.html.HtmlForm;
 import com.ann.app.view.html.HtmlFormField;
+import com.ann.app.view.html.TableColHeader;
 @HtmlForm(label ="Job",url = "./job")
 public class Job implements Serializable{
-
-    @HtmlFormField(name = "Job Title")
+    
+    @TableColHeader(header = "Job Title")
+    @HtmlFormField(label = "Job Title")
     private String title;
 
-    @HtmlFormField(name = "Location")
+    @TableColHeader(header = "Location")
+    @HtmlFormField(label = "Location")
     private String location;
 
-    @HtmlFormField(name = "Date Posted")
+    @TableColHeader(header = "Date Posted")
+    @HtmlFormField(label = "Today's Date")
     private String datePosted;
     
     public Job() {

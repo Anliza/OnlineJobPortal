@@ -40,6 +40,15 @@ public class Database implements Serializable{
         this.users = users;
     }
 
+
+    public String getDatabaseCreateAt() {
+        return databaseCreateAt;
+    }
+
+    public void setDatabaseCreateAt(String databaseCreateAt) {
+        this.databaseCreateAt = databaseCreateAt;
+    }
+
     public List<Job> getJobs() {
         return jobs;
     }
@@ -48,8 +57,8 @@ public class Database implements Serializable{
         this.jobs = jobs;
     }
 
-    public String getDatabaseCreateAt() {
-        return databaseCreateAt;
+    public static void setDbInstance(Database dbInstance) {
+        Database.dbInstance = dbInstance;
     }
     
 }
