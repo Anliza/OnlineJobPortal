@@ -1,12 +1,19 @@
 package com.ann.app.model.entity;
 
 import java.io.Serializable;
-import org.apache.commons.lang3.StringUtils;
 
+import com.ann.app.view.html.HtmlForm;
+import com.ann.app.view.html.HtmlFormField;
+@HtmlForm(label ="Job",url = "./job")
 public class Job implements Serializable{
-    
+
+    @HtmlFormField(name = "Job Title")
     private String title;
+
+    @HtmlFormField(name = "Location")
     private String location;
+
+    @HtmlFormField(name = "Date Posted")
     private String datePosted;
     
     public Job() {
@@ -33,20 +40,5 @@ public class Job implements Serializable{
     }
     public void setDatePosted(String datePosted) {
         this.datePosted = datePosted;
-    }
-
-    public String tableRow(){
-
-        StringBuilder trBuilder = new StringBuilder();
-
-        trBuilder.append("<tr>");
-        trBuilder.append("<td>").append(StringUtils.trimToEmpty(getTitle())).append("</td>");
-        trBuilder.append("<td>").append(StringUtils.trimToEmpty(getLocation())).append("</td>");
-        trBuilder.append("<td>").append(StringUtils.trimToEmpty(getDatePosted())).append("</td>");
-        /*trBuilder.append("<td>").append(getDatePosted() == null? ""
-            : new SimpleDateFormat("dd.MM.yyyy").format(getDatePosted())).append("</td>");*/
-        trBuilder.append("<tr>");
-
-        return trBuilder.toString();
     }
 }

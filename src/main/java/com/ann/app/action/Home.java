@@ -22,7 +22,8 @@ public class Home extends BaseAction{
         HttpSession httpSession = req.getSession();
 
         new AppPage().renderHtml(req, resp, 0,
-        "<center><h2 style=\"color: #E0E5E9;\">Available Jobs</h2></center>\n"+ jobBeanEn.jobsAvailable());
+        "<center><h2 style=\"color: #E0E5E9;\">Available Jobs</h2></center>\n"
+        + jobBeanEn.jobsAvailable());
             
     }
     

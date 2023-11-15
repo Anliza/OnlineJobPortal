@@ -36,8 +36,7 @@ public class AppPage implements Serializable{
 
             "<h3 style=\"color: #E0E5E9;\">" + ctx.getInitParameter("AppName") + "<h3>" +
             //"<br/>&nbsp;<br/>" +
-            "<h3>Welcome: " + session.getAttribute("username") + "</h3> | Authenticated At "
-            + resp.getHeader("AuthTime") + "<br/>");
+            "<h3>Welcome: " + session.getAttribute("username") + "</h3><br/>");
         print.write(content);
         print.write("<a style= \" color: pink\"href=\"./logout\">Logout</a>" +
             "</body>" +
