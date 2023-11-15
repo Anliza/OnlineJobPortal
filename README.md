@@ -91,6 +91,9 @@ A toolbar was created to allow for the navigation between the different servlets
 ## Event & Listeners (Event occurrence of something, 
 listeners is something that waits for and an event to happen so that it can do something else)
 
- Filters
+ ## Filters
  Servlet filter implementation.
  Enable session check for the every servlet.
+
+## Annotations
+Java annotations to generate database table, html form, html table...

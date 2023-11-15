@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import com.ann.app.view.html.AppPage;
 
 @WebServlet("services")
-public class Services extends HttpServlet {
+public class Services extends BaseAction {
 
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession httpSession = req.getSession();

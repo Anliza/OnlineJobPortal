@@ -14,13 +14,16 @@ import com.ann.database.Database;
 
 
 @WebServlet("/register")
-public class Register extends HttpServlet{
+public class Register extends BaseAction{
     
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         new RegisterPage().renderHtml(req, resp);
     }
 
      public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        User registerUser = new User();
+        serializeForm(registerUser, req.getParameterMap());
 
         Database database = Database.getDbInstance();
 
