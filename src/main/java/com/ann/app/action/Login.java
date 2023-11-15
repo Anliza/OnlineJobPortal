@@ -16,7 +16,6 @@ import com.ann.app.bean.AuthBean;
 import com.ann.app.bean.AuthBeanI;
 import com.ann.app.model.entity.User;
 import com.ann.app.view.html.LoginPage;
-import com.ann.database.Database;
 
 @WebServlet(urlPatterns = "/login")
 
@@ -24,15 +23,9 @@ public class Login extends BaseAction{
     AuthBeanI authBean = new AuthBean();
 
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-        
-        HttpSession httpSession = req.getSession();
-
-        if (StringUtils.isNotBlank((String) httpSession.getAttribute("loggedInId")))
-            resp.sendRedirect("./home");
-        else{
-           new LoginPage().renderHtml(req, resp);
-        }
+        new LoginPage().renderHtml(req, resp);
     }
+    
 
      public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 

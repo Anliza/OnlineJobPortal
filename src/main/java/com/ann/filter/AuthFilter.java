@@ -1,63 +1,67 @@
 package com.ann.filter;
 
-import java.io.IOException;
+import org.apache.commons.lang3.StringUtils;
 
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.util.Date;
 
-import org.apache.commons.lang3.StringUtils;
-
-@WebFilter (urlPatterns = "/*")
+@WebFilter(urlPatterns = "/*")
 public class AuthFilter implements Filter {
 
-    @Override 
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
-            throws IOException, ServletException {
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+        Filter.super.init(filterConfig);
+    }
 
-            HttpServletRequest httpRequest = (HttpServletRequest) request;
-            HttpServletResponse httpResponse = (HttpServletResponse) response;
-            HttpSession httpSession = httpRequest.getSession();
-            
-            String servletPath = httpRequest.getServletPath();
-            System.out.print("servlet path: " +servletPath);
-            System.out.println("context path: " +httpRequest.getContextPath());
-            System.out.println("context URI: "+ httpRequest.getRequestURI());
+    @Override
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
+         FilterChain filterChain) throws IOException, ServletException {
 
-            if(httpSession.isNew()){
-                httpSession.invalidate();
+        HttpServletRequest httpRequest = (HttpServletRequest) servletRequest;
+        HttpServletResponse httpResponse = (HttpServletResponse) servletResponse;
+        HttpSession httpSession = httpRequest.getSession();
 
-                if (servletPath.equals("/login") || servletPath.equals("/index.html"))
-                    chain.doFilter(request,response);
-                    else{
-                        httpResponse.sendRedirect(httpRequest.getContextPath() + "/");
-                        /* make sure the whole writer is cleared */
-                        response.getWriter().flush(); 
-                    }
-            }else {
-                if (StringUtils.isNotBlank((String) httpSession.getAttribute("loggedInId")))
-                chain.doFilter(request, response);
-                else{
-                    httpResponse.sendRedirect(httpRequest.getContextPath() + "/login");
-                    response.getWriter().flush();
-                }
+        String servletPath = httpRequest.getServletPath();
+        System.out.println("servlet path: " + servletPath);
+        System.out.println("context path: " + httpRequest.getContextPath());
+        System.out.println("context URI: " + httpRequest.getRequestURI());
+
+        if (httpSession.isNew()) {
+            System.out.println("1.New Session");
+            httpSession.invalidate();
+
+            if (servletPath.equals("/login") || servletPath.equals("/register")|| servletPath.equals("/index.html")) {
+                System.out.println("2. Proceed to login...or index.html");
+                filterChain.doFilter(servletRequest, servletResponse);
+
+            } else {
+                httpResponse.sendRedirect(httpRequest.getContextPath() + "/");
+                servletResponse.getWriter().flush();
+
             }
-        }   
+
+        } else {
+            if (StringUtils.isNotBlank((String) httpSession.getAttribute("loggedInId"))) {
+                httpResponse.addHeader("AuthTime", DateFormat.getDateTimeInstance().format(new Date()));
+                filterChain.doFilter(servletRequest, servletResponse);
+            }else {
+                httpResponse.sendRedirect(httpRequest.getContextPath() + "/");
+                servletResponse.getWriter().flush();
+            }
+        }
+
+
+    }
 
     @Override
-    public void init(FilterConfig config)throws ServletException{
-        Filter.super.init(config);
-        } 
-
-    @Override
-    public void destroy(){
+    public void destroy() {
         Filter.super.destroy();
-        } 
+    }
+
 }
