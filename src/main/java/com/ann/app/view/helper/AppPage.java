@@ -1,4 +1,4 @@
-package com.ann.app.view.html;
+package com.ann.app.view.helper;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.ann.app.view.css.AppCss;
-import com.ann.app.view.toolbar.TopToolbar;
 
 public class AppPage implements Serializable{
     
@@ -32,7 +31,7 @@ public class AppPage implements Serializable{
 
             "<body>" +
 
-            new TopToolbar().menu(activeMenu) +
+            new HtmlTopToolbar().menu(activeMenu) +
 
             "<h3 style=\"color: #E0E5E9;\">" + ctx.getInitParameter("AppName") + "<h3>" +
             //"<br/>&nbsp;<br/>" +

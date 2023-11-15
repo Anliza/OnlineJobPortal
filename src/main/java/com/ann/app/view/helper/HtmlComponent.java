@@ -1,10 +1,9 @@
-package com.ann.app.view.html;
+package com.ann.app.view.helper;
 
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
 import java.lang.reflect.Field;
-import java.lang.reflect.Type;
 import java.util.List;
 
 public class HtmlComponent implements Serializable {

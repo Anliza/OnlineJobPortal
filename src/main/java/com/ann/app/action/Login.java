@@ -12,8 +12,8 @@ import javax.servlet.http.HttpSession;
 
 import com.ann.app.bean.AuthBean;
 import com.ann.app.bean.AuthBeanI;
-import com.ann.app.model.entity.User;
-import com.ann.app.view.html.LoginPage;
+import com.ann.app.model.User;
+import com.ann.app.view.helper.LoginPage;
 
 @WebServlet(urlPatterns = "/login")
 

@@ -1,10 +1,10 @@
-package com.ann.app.model.entity;
+package com.ann.app.model;
 
 import java.io.Serializable;
 
-import com.ann.app.view.html.HtmlForm;
-import com.ann.app.view.html.HtmlFormField;
-import com.ann.app.view.html.TableColHeader;
+import com.ann.app.view.helper.HtmlForm;
+import com.ann.app.view.helper.HtmlFormField;
+import com.ann.app.view.helper.TableColHeader;
 @HtmlForm(label ="Job",url = "./job")
 public class Job implements Serializable{
     

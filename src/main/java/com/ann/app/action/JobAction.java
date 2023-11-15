@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import com.ann.app.bean.JobBean;
 import com.ann.app.bean.JobBeanI;
-import com.ann.app.model.entity.Job;
+import com.ann.app.model.Job;
 
 @WebServlet("/job")
 public class JobAction extends BaseAction{

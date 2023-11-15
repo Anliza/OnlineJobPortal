@@ -4,8 +4,8 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
-import com.ann.app.model.entity.Job;
-import com.ann.app.model.entity.User;
+import com.ann.app.model.Job;
+import com.ann.app.model.User;
 import com.ann.database.Database;
 
 @WebListener

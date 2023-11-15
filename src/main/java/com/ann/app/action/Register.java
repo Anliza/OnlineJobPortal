@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.ann.app.bean.UserBean;
 import com.ann.app.bean.UserBeanI;
-import com.ann.app.model.entity.User;
-import com.ann.app.view.html.RegisterPage;
+import com.ann.app.model.User;
+import com.ann.app.view.helper.RegisterPage;
 
 
 

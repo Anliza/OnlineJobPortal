@@ -36,7 +36,7 @@ public class AuthFilter implements Filter {
             System.out.println("1.New Session");
             httpSession.invalidate();
 
-            if (servletPath.equals("/login") || servletPath.equals("/register")|| servletPath.equals("/index.html")) {
+            if (servletPath.equals("/login") || servletPath.equals("/register")||servletPath.equals("/index.html")|| servletPath.contains(".jsp")) {
                 System.out.println("2. Proceed to login...or index.html");
                 filterChain.doFilter(servletRequest, servletResponse);
 

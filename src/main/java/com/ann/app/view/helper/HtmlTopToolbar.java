@@ -1,13 +1,10 @@
-package com.ann.app.view.toolbar;
+package com.ann.app.view.helper;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ann.app.model.view.MenuLink;
-import com.ann.app.model.view.MenuLinkStatus;
-
-public class TopToolbar implements Menu, Serializable{
+public class HtmlTopToolbar implements HtmlMenu, Serializable{
 
      private final List<MenuLink> links = new ArrayList<>();
 

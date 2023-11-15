@@ -2,7 +2,7 @@ package com.ann.app.bean;
 
 import java.io.Serializable;
 
-import com.ann.app.model.entity.User;
+import com.ann.app.model.User;
 import com.ann.database.Database;
 
 public class UserBean implements UserBeanI, Serializable {

@@ -2,8 +2,8 @@ package com.ann.app.bean;
 
 import java.io.Serializable;
 
-import com.ann.app.model.entity.Job;
-import com.ann.app.view.html.HtmlComponent;
+import com.ann.app.model.Job;
+import com.ann.app.view.helper.HtmlComponent;
 import com.ann.database.Database;
 
 public class JobBean implements JobBeanI, Serializable{

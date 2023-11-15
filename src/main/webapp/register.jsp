@@ -44,25 +44,15 @@
 </head>
 
  <body>
-    <center>
-        <h1 style="color: #E0E5E9;"> Login </h1>
-    </center>
-
-    <span style="font-weight:bold;font-size:13px;"></span>
-    <form action="./login" method="post">
-
-        <div class="container">
-            <label>Username : </label>
-            <input type="text" placeholder="Enter Username" name="username" required>
-            <label>Password : </label>
-            <input type="password" placeholder="Enter Password" name="password" required>
-            <p><button type="submit">Login</button> </p>
-            <right-align> <a style="color:#64766A;" href="#"> Forgot password? </a></right>
-                <left> <a style="color:#64766A;" href="./register"> Register </a></left>
-
-        </div>
-    </form>
+   
+    <h2><%
+        out.println(application.getInitParameter("AppName"));
+    %></h2>
+        
 
 </body>
 
+
+
 </html>
+

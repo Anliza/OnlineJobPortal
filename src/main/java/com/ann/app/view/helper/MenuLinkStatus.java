@@ -1,4 +1,4 @@
-package com.ann.app.model.view;
+package com.ann.app.view.helper;
 
 public enum MenuLinkStatus {
     
