@@ -10,6 +10,16 @@ public class User implements Serializable{
 
     private String password;
 
+    private String confirmPassword;
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
+
     public User() {
     }
 

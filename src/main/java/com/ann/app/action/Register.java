@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ann.app.bean.UserBean;
+import com.ann.app.bean.UserBeanI;
 import com.ann.app.model.entity.User;
 import com.ann.app.view.html.RegisterPage;
 import com.ann.database.Database;
@@ -15,6 +17,7 @@ import com.ann.database.Database;
 
 @WebServlet("/register")
 public class Register extends BaseAction{
+    UserBeanI userBean =new UserBean();
     
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         new RegisterPage().renderHtml(req, resp);
@@ -25,14 +28,7 @@ public class Register extends BaseAction{
         User registerUser = new User();
         serializeForm(registerUser, req.getParameterMap());
 
-        Database database = Database.getDbInstance();
-
-        String username = req.getParameter("username");
-        String password = req.getParameter("password");
-        String confirmPassword = req.getParameter("confirmPassword");
-
-        if (password.equals(confirmPassword))
-            database.getUsers().add(new User(100L, username, password));
+        userBean.register(registerUser);
 
         resp.sendRedirect("./login");
     }
