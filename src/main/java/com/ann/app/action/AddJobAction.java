@@ -11,7 +11,7 @@ import com.ann.app.model.Job;
 import com.ann.app.view.helper.HtmlComponent;
 
 @WebServlet("addjob")
-public class AddJob  extends BaseAction {
+public class AddJobAction  extends BaseAction {
 
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 

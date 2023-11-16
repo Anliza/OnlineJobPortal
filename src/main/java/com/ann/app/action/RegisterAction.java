@@ -15,7 +15,7 @@ import com.ann.app.view.helper.RegisterPage;
 
 
 @WebServlet("/register")
-public class Register extends BaseAction{
+public class RegisterAction extends BaseAction{
     UserBeanI userBean =new UserBean();
     
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{

@@ -17,7 +17,7 @@ import com.ann.app.view.helper.LoginPage;
 
 @WebServlet(urlPatterns = "/login")
 
-public class Login extends BaseAction{
+public class LoginAction extends BaseAction{
     AuthBeanI authBean = new AuthBean();
 
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{

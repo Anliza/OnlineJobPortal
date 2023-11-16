@@ -6,16 +6,13 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.ann.app.bean.JobBean;
 import com.ann.app.bean.JobBeanI;
-import com.ann.app.model.Job;
-import com.ann.app.view.helper.HtmlComponent;
 
 @WebServlet("/home")
 
-public class Home extends BaseAction{
+public class HomeAction extends BaseAction{
 
     JobBeanI jobBean = new JobBean();
 
