@@ -6,6 +6,8 @@ import java.util.List;
 
 public class HtmlTopToolbar implements HtmlMenu, Serializable{
 
+    
+
      private final List<MenuLink> links = new ArrayList<>();
 
     {
