@@ -60,8 +60,8 @@ public class HtmlComponent implements Serializable {
         if (aHtmlForm == null)
             return StringUtils.EMPTY;
 
-       String htmlForm =  "<center\n>" + "<h2>" +  aHtmlForm.label() + "</h2>" +
-        "<br/ style=\"color: #E0E5E9;\">Add " + aHtmlForm.label() + "<br/><form action=\"" + aHtmlForm.url()
+       String htmlForm =  "<center\n>" +
+        "<h3><br/ style=\"color: #E0E5E9;\">Add " + aHtmlForm.label() + "<br/></h3><form action=\"" + aHtmlForm.url()
            + "\" method=\"" + aHtmlForm.httpMethod() + "\">";
 
         Field [] fields = model.getDeclaredFields();
@@ -83,9 +83,9 @@ public class HtmlComponent implements Serializable {
                     + (StringUtils.isBlank(formField.name())?fieldName : formField.name()) + "\" ><br>";
         }
 
-        htmlForm += "<input type=\"submit\" value=\"Submit\">";
+        htmlForm += "<button type=\"submit\"> Submit </button>";
         htmlForm += "</form><br/>";
-        htmlForm += "</center>\n";
+        htmlForm += "</center>\n" + "<br/><hr/><br/>";
 
         return htmlForm;
 

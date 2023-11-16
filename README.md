@@ -119,7 +119,7 @@ Jsp Lifecycle
 
 hello.jsp->hello_jsp.java->hello_jsp.class
 
-JSP SCRIPTING ELEMENTS
+### JSP SCRIPTING ELEMENTS
 <% .... %>
 TYPES
 COMMENTS <%!-- COMMENT ---%>
@@ -131,7 +131,7 @@ DECLARATION <%! declaration %>
 EXPRESSION <%= EXPRESSION %>
 SCRIPTLET <% JAVA CODE %>
 
-IMPLICIT OBJECTS
+### IMPLICIT OBJECTS
 1. out = JspWritter
 2. request = HttpServletRequest
 3. response = HttpServletResponse
@@ -141,3 +141,8 @@ IMPLICIT OBJECTS
 7. exception = jspException
 8. page = 
 9. pageContext = request, response, session
+
+### JSP ACTION TAGS
+1. <jsp:forward>
+2. <jsp:include>
+3. <jsp:useBean>

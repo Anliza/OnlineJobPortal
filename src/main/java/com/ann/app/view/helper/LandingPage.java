@@ -36,6 +36,8 @@ public class LandingPage implements Serializable{
         "    <ul>\n" + //
         "      <li><b><a href=\"./login\">Login</a></b></li><br><br>\n" + //
         "      <li><b><a href=\"./register\">Signup</a></b></li>\n" + //
+        "      <li><b><a href=\"./about\">About Us</a></b></li>\n" + //
+        "      <li><b><a href=\"./help\">Help Center</a></b></li>\n" + //
         "    </ul>\n" + //
         "  </nav>\n" + //
         "  \n" + //
