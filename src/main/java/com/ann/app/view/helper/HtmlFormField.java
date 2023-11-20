@@ -14,4 +14,8 @@ public @interface HtmlFormField {
     String id() default "";
     String name() default "";
 
+    HtmlFormFieldType type() default HtmlFormFieldType.TEXT;
+
+    boolean required() default false;
+
 }

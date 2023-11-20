@@ -9,6 +9,8 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 public @interface DbColumn {
 
-    String columnName();
+    String name();
+
+    String definition() default "varchar(255)";
     
 }

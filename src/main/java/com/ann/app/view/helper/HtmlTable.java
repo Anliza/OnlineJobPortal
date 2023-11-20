@@ -1,13 +1,16 @@
-package com.ann.database.helper;
+package com.ann.app.view.helper;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-public @interface DbTable {
-    
-    String name();
+@Retention(RetentionPolicy.RUNTIME)
+public @interface HtmlTable{
+
+    String name() default "";
+
+    String addUrl();
 }
+

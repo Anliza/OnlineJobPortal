@@ -30,6 +30,7 @@ public class LoginAction extends BaseAction{
         User loginUser  = new User();
         serializeForm(loginUser, req.getParameterMap());
 
+        try{
         User userDetails = authBean.authenticate(loginUser);
 
         if (userDetails != null) {
@@ -44,7 +45,10 @@ public class LoginAction extends BaseAction{
 
         PrintWriter print = resp.getWriter();
         print.write("<html><body>Invalid login details <a href=\".\"> Login again </a></body></html>");
-
+        
+        }catch(Exception ex) {
+            ex.printStackTrace();
+        }
  
      }
     

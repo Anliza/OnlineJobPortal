@@ -1,18 +1,28 @@
 package com.ann.app.bean;
 
 import java.io.Serializable;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.concurrent.ThreadLocalRandom;
 
 import com.ann.app.model.User;
-import com.ann.database.Database;
+import com.ann.database.MysqlDatabase;
 
 public class UserBean implements UserBeanI, Serializable {
 
-    Database database = Database.getDbInstance();
-
     @Override
-    public boolean register(User user) {
+    public boolean register(User user) throws SQLException{
         if (user.getPassword().equals(user.getConfirmPassword())){
-            database.getUsers().add(new User(100L, user.getUsername(), user.getPassword()));
+            
+
+            PreparedStatement sqlStmt = MysqlDatabase.getInstance().getConnection()
+                .prepareStatement("insert into users(id,username,password) values(?,?,?)");
+
+            sqlStmt.setInt(1, ThreadLocalRandom.current().nextInt(1, 1000));
+            sqlStmt.setString(2, user.getUsername());
+            sqlStmt.setString(3, user.getPassword());
+
+            sqlStmt.executeUpdate();
             
             return true;
         }

@@ -24,10 +24,11 @@ public class RegisterAction extends BaseAction{
 
      public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        User registerUser = new User();
-        serializeForm(registerUser, req.getParameterMap());
-
-        userBean.register(registerUser);
+        try {
+            userBean.register(serializeForm(User.class, req.getParameterMap()));
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
 
         resp.sendRedirect("./login");
     }

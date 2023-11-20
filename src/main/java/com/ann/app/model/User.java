@@ -2,12 +2,19 @@ package com.ann.app.model;
 
 import java.io.Serializable;
 
+import com.ann.database.helper.DbColumn;
+import com.ann.database.helper.DbTable;
+
+@DbTable(name = "users")
 public class User implements Serializable{
 
+    @DbColumn(name = "id", definition = "int")
     private Long id;
 
+    @DbColumn(name = "username")
     private String username;
 
+    @DbColumn(name = "password")
     private String password;
 
     private String confirmPassword;
